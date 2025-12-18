@@ -1,0 +1,37 @@
+{
+  "common": {
+    "appName": "Plexo",
+    "login": "Log in",
+    "signup": "Sign up",
+    "menu": "Menu",
+    "scroll": "Scroll",
+    "support": "Support"
+  },
+  "languages": {
+    "en": "English",
+    "pt": "Português",
+    "selectLanguage": "Select language"
+  },
+  "hero": {
+    "title": {
+      "line1": "One app",
+      "line2": "for all needs"
+    },
+    "subtitle": "One account for all your payments.",
+    "appStore": {
+      "downloadOn": "Download on",
+      "appStore": "App Store",
+      "getItOn": "GET IT ON",
+      "googlePlay": "Google Play"
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "benefits": "Benefits",
+    "cards": "Cards",
+    "app": "App",
+    "faqs": "FAQs",
+    "homepage": "Homepage"
+  }
+}
