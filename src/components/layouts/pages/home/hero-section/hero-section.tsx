@@ -21,42 +21,71 @@ export function HeroSection() {
 				<Header />
 			</motion.div>
 
-			<div className="flex flex-col items-center justify-between mt-20 gap-6 pb-20 md:pb-6 h-full">
-				{/* Title */}
-				<motion.h1
-					initial="hidden"
-					animate="visible"
-					variants={heroSectionAnimations.fadeInUp}
-					custom={0.2}
-					className="text-[2.75rem] sm:text-5xl font-bold text-black leading-[1.02] tracking-[-0.02em] pr-20"
-				>
-					{t("title.line1")} {t("title.line2")}
-				</motion.h1>
+			<div className="flex flex-col items-center justify-center mt-20 lg:flex-col lg:h-full lg:justify-center">
+				{/* Title - Top on mobile/md, bottom left on lg */}
+				<div className="w-full flex items-start justify-start lg:hidden">
+					<motion.h1
+						layout
+						initial="hidden"
+						animate="visible"
+						variants={heroSectionAnimations.fadeInUp}
+						custom={0.2}
+						className="text-[2.75rem] sm:text-6xl md:text-7xl font-bold text-black leading-[1.02] tracking-[-0.02em] pr-20 my-8"
+					>
+						{t("title.line1")}
+						<br />
+						{t("title.line2")}
+					</motion.h1>
+				</div>
 
-				<div className="flex flex-col items-center justify-center gap-6">
-					{/* iPhone Frame */}
-					<motion.div initial="hidden" animate="visible" variants={heroSectionAnimations.scaleIn} custom={0.4}>
-						<IPhoneFrame videoSrc="/hero-video.mp4" />
+				{/* Content wrapper */}
+				<div className="flex flex-col items-center justify-center gap-6 sm:flex-row md:gap-12 lg:relative lg:flex-row lg:justify-center lg:items-end lg:flex-1 lg:w-full lg:pb-16">
+					{/* Title - Bottom left on lg, aligned with iPhone bottom */}
+					<motion.h1
+						layout
+						initial="hidden"
+						animate="visible"
+						variants={heroSectionAnimations.fadeInUp}
+						custom={0.2}
+						className="hidden lg:block lg:absolute lg:left-0 lg:bottom-40 lg:text-7xl xl:text-8xl font-bold text-black leading-[1.02] tracking-[-0.02em] lg:max-w-md xl:max-w-xl"
+					>
+						{t("title.line1")}
+						<br />
+						{t("title.line2")}
+					</motion.h1>
+
+					{/* iPhone Frame - Centered */}
+					<motion.div
+						layout
+						initial="hidden"
+						animate="visible"
+						variants={heroSectionAnimations.scaleIn}
+						custom={0.4}
+						className="lg:flex-shrink-0 lg:mb-24"
+					>
+						<IPhoneFrame videoSrc="/hero-video.mp4" className="md:max-w-[200px] lg:max-w-[280px] 2xl:max-w-[340px]" />
 					</motion.div>
 
-					{/* Description and Buttons */}
-					<div className="flex flex-col items-center justify-center gap-2">
+					{/* Description and Buttons - Bottom Right, aligned with iPhone bottom */}
+					<div className="flex flex-col items-center justify-center gap-2 md:items-start md:justify-end lg:absolute lg:right-0 lg:bottom-40 lg:items-end lg:max-w-xs">
 						<motion.p
+							layout
 							initial="hidden"
 							animate="visible"
 							variants={heroSectionAnimations.fadeInUp}
 							custom={0.6}
-							className="text-base text-black/90 leading-relaxed text-center sm:text-left"
+							className="text-base text-black/90 leading-relaxed text-center md:text-left lg:text-right"
 						>
 							{t("subtitle")}
 						</motion.p>
 
 						<motion.div
+							layout
 							initial="hidden"
 							animate="visible"
 							variants={heroSectionAnimations.fadeInUp}
 							custom={0.8}
-							className="md:hidden flex gap-4 mx-auto"
+							className="flex gap-4 mx-auto md:mx-0"
 						>
 							<AppStoreButton store="apple" href="https://apps.apple.com" />
 							<AppStoreButton store="google" href="https://play.google.com" />

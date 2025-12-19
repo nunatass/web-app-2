@@ -115,8 +115,24 @@
   * {
     @apply border-border;
   }
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    overscroll-behavior: none;
+  }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+    /* Ensure page starts at top on load */
+    position: relative;
+    min-height: 100vh;
+  }
+  /* Prevent initial scroll jump */
+  body::before {
+    content: '';
+    display: block;
+    height: 0;
   }
 }
 

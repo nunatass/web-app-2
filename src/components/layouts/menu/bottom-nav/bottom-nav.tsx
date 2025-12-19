@@ -99,7 +99,7 @@ export function BottomNav() {
 
 					{/* Navigation */}
 					<nav
-						className="flex items-center p-1 rounded-full bg-[hsl(154,70%,50%)] transition-colors duration-300"
+						className="flex items-center p-1 rounded-full bg-white/[0.08] backdrop-blur-sm transition-colors duration-300"
 						aria-label="Page sections"
 					>
 						{navItems.map(item => (

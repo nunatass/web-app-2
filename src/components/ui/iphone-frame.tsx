@@ -23,13 +23,48 @@ export function IPhoneFrame({
 	const videoRef = useRef<HTMLVideoElement>(null)
 
 	useEffect(() => {
-		// Force video to play on iOS
+		// Aggressive iOS video autoplay fix
 		if (videoRef.current && videoSrc) {
-			videoRef.current.muted = true
-			videoRef.current.playsInline = true
-			videoRef.current.play().catch(error => {
-				console.warn("Video autoplay failed:", error)
-			})
+			const video = videoRef.current
+
+			// Set required properties
+			video.muted = true
+			video.playsInline = true
+			video.setAttribute("playsinline", "true")
+			video.setAttribute("webkit-playsinline", "true")
+
+			// Try to play immediately
+			const playPromise = video.play()
+
+			if (playPromise !== undefined) {
+				playPromise.catch(error => {
+					console.warn("Initial autoplay failed:", error)
+
+					// Retry after a short delay
+					setTimeout(() => {
+						video.play().catch(err => {
+							console.warn("Delayed autoplay failed:", err)
+						})
+					}, 100)
+				})
+			}
+
+			// Also try on user interaction
+			const handleInteraction = () => {
+				if (video.paused) {
+					video.play().catch(err => {
+						console.warn("Play on interaction failed:", err)
+					})
+				}
+			}
+
+			document.addEventListener("touchstart", handleInteraction, { once: true })
+			document.addEventListener("click", handleInteraction, { once: true })
+
+			return () => {
+				document.removeEventListener("touchstart", handleInteraction)
+				document.removeEventListener("click", handleInteraction)
+			}
 		}
 	}, [videoSrc])
 	return (
@@ -61,6 +96,9 @@ export function IPhoneFrame({
 								poster={poster}
 								className="absolute top-0 left-0 w-full h-full object-cover"
 								webkit-playsinline="true"
+								x5-playsinline="true"
+								disablePictureInPicture
+								controlsList="nodownload nofullscreen noremoteplayback"
 							>
 								<source src={videoSrc} type="video/mp4" />
 							</video>

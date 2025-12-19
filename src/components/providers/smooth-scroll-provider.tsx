@@ -1,39 +1,44 @@
-"use client";
+"use client"
 
-import { useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
+import Lenis from "@studio-freight/lenis"
+import { useEffect } from "react"
 
 export function SmoothScrollProvider({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode
 }) {
-  useEffect(() => {
-    // Initialize Lenis
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: "vertical",
-      gestureOrientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-      infinite: false,
-    });
+	useEffect(() => {
+		// Prevent browser scroll restoration
+		if ("scrollRestoration" in history) {
+			history.scrollRestoration = "manual"
+		}
 
-    // Lenis request animation frame
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+		// Initialize Lenis
+		const lenis = new Lenis({
+			duration: 1.2,
+			easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+			orientation: "vertical",
+			gestureOrientation: "vertical",
+			smoothWheel: true,
+			wheelMultiplier: 1,
+			touchMultiplier: 2,
+			infinite: false,
+		})
 
-    requestAnimationFrame(raf);
+		// Lenis request animation frame
+		function raf(time: number) {
+			lenis.raf(time)
+			requestAnimationFrame(raf)
+		}
 
-    // Cleanup on unmount
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
+		requestAnimationFrame(raf)
 
-  return <>{children}</>;
+		// Cleanup on unmount
+		return () => {
+			lenis.destroy()
+		}
+	}, [])
+
+	return <>{children}</>
 }
