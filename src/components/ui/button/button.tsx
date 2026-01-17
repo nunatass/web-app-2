@@ -45,22 +45,34 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-	({ className, variant, size, asChild = false, id, children, ...props }, ref) => {
-		const Comp = asChild ? Slot : motion.button
-
-		// Animation props for framer-motion
-		const motionProps = asChild ? {} : buttonAnimations.press
+	({ className, variant, size, asChild = false, id, children, onClick, disabled, type = "button", ...props }, ref) => {
+		if (asChild) {
+			return (
+				<Slot
+					className={cn(buttonVariants({ variant, size, className }))}
+					ref={ref}
+					id={id}
+					{...props}
+				>
+					{children}
+				</Slot>
+			)
+		}
 
 		return (
-			<Comp
+			<motion.button
 				className={cn(buttonVariants({ variant, size, className }))}
 				ref={ref}
 				id={id}
-				{...motionProps}
-				{...props}
+				onClick={onClick}
+				disabled={disabled}
+				type={type}
+				whileHover={{ scale: 0.97 }}
+				whileTap={{ scale: 0.95 }}
+				transition={buttonAnimations.press.transition}
 			>
 				<span className="whitespace-nowrap">{children}</span>
-			</Comp>
+			</motion.button>
 		)
 	},
 )
