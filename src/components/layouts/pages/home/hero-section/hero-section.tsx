@@ -14,7 +14,7 @@ export function HeroSection() {
 	return (
 		<section
 			id="hero"
-			className="relative h-dvh md:min-h-screen bg-background px-6 py-4 md:px-10 lg:px-12"
+			className="relative h-dvh md:min-h-screen bg-[hsl(154,70%,50%)] px-6 py-4 md:px-10 lg:px-12"
 			aria-label={`${t("title.line1")} ${t("title.line2")}`}
 		>
 			<motion.div initial="hidden" animate="visible" variants={heroSectionAnimations.fadeIn} custom={0}>
@@ -25,7 +25,6 @@ export function HeroSection() {
 				{/* Title - Top on mobile/md, bottom left on lg */}
 				<div className="w-full flex items-start justify-start lg:hidden">
 					<motion.h1
-						layout
 						initial="hidden"
 						animate="visible"
 						variants={heroSectionAnimations.fadeInUp}
@@ -42,7 +41,6 @@ export function HeroSection() {
 				<div className="flex flex-col items-center justify-center gap-6 sm:flex-row md:gap-12 lg:relative lg:flex-row lg:justify-center lg:items-end lg:flex-1 lg:w-full lg:pb-16">
 					{/* Title - Bottom left on lg, aligned with iPhone bottom */}
 					<motion.h1
-						layout
 						initial="hidden"
 						animate="visible"
 						variants={heroSectionAnimations.fadeInUp}
@@ -56,7 +54,6 @@ export function HeroSection() {
 
 					{/* iPhone Frame - Centered */}
 					<motion.div
-						layout
 						initial="hidden"
 						animate="visible"
 						variants={heroSectionAnimations.scaleIn}
@@ -69,7 +66,6 @@ export function HeroSection() {
 					{/* Description and Buttons - Bottom Right, aligned with iPhone bottom */}
 					<div className="flex flex-col items-center justify-center gap-2 md:items-start md:justify-end lg:absolute lg:right-0 lg:bottom-40 lg:items-end lg:max-w-xs">
 						<motion.p
-							layout
 							initial="hidden"
 							animate="visible"
 							variants={heroSectionAnimations.fadeInUp}
@@ -80,7 +76,6 @@ export function HeroSection() {
 						</motion.p>
 
 						<motion.div
-							layout
 							initial="hidden"
 							animate="visible"
 							variants={heroSectionAnimations.fadeInUp}

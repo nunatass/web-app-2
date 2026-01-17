@@ -13,7 +13,7 @@ export function MenuHeader() {
 	const t = useTranslations("common")
 
 	return (
-		<div className="sticky top-0 z-10 flex items-center justify-between gap-3 px-6 py-4 bg-background">
+		<div className="sticky top-0 z-10 flex items-center justify-between gap-3 px-6 py-4 bg-[hsl(154,70%,50%)]">
 			{/* Logo - same as hero */}
 			<motion.div variants={menuHeaderAnimations.logo} initial="hidden" animate="visible" exit="exit">
 				<AnimatedLogo />

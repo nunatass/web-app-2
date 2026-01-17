@@ -3,6 +3,7 @@
     "appName": "Plexo",
     "login": "Log in",
     "signup": "Sign up",
+    "joinBeta": "Join the Beta",
     "menu": "Menu",
     "scroll": "Scroll",
     "support": "Support"
@@ -33,5 +34,83 @@
     "app": "App",
     "faqs": "FAQs",
     "homepage": "Homepage"
+  },
+  "spendingFeatures": {
+    "hero": {
+      "line1": "PAY ANYWHERE,",
+      "line2": "FROM ANYWHERE",
+      "subtitle": "Your gateway to global payments. No borders, no limits."
+    },
+    "title": {
+      "line1": "THE WORLD IS",
+      "line2": "NOW YOURS"
+    },
+    "description": {
+      "line1": "Shop on Amazon, subscribe to Netflix, book flights worldwide.",
+      "line2": "Send money home or pay for your studies abroad.",
+      "line3": "One card for everything."
+    }
+  },
+  "cardsSection": {
+    "title": "Elevate your spend",
+    "subtitle": "Earn points on your purchases with one of our debit cards. Then redeem them for Airline Miles and more.",
+    "features": {
+      "cashback": "Get up to 2% cashback on all purchases",
+      "virtual": "Virtual & physical cards available",
+      "wallet": "Create and add virtual cards to your Apple Wallet or Google Wallet to start paying right away."
+    },
+    "terms": "RevPoints T&Cs apply.",
+    "footer": "Some cards available on paid plans only. Fees may apply."
+  },
+  "sendSection": {
+    "title": "SIMPLY HIT SEND",
+    "subtitle": "Sending and receiving money is just as easy as texting a friend.",
+    "description": "Request and receive money with Plexos, get paid easily in top currencies, and make it even slicker by syncing your contacts.",
+    "global": {
+      "title": "SEND MONEY ANYWHERE IN THE WORLD",
+      "subtitle": "Send money to your child studying abroad—faster, with lower fees. Easily send money home to family or receive freelance payments.",
+      "description": "With Plexos, international transfers are fast, affordable, and hassle-free. No borders, just possibilities."
+    }
+  },
+  "featuresSection": {
+    "sent": "Sent",
+    "received": "Received",
+    "paid": "Paid"
+  },
+  "footer": {
+    "tagline": "YOUR GLOBAL PAYMENT PARTNER",
+    "socialMedia": "Social",
+    "legal": "Legal",
+    "sections": {
+      "getStarted": "Get Started",
+      "discover": "Discover",
+      "company": "Company",
+      "help": "Help"
+    },
+    "links": {
+      "signUp": "Sign up",
+      "login": "Login",
+      "plexosCard": "Plexos Card",
+      "fees": "Fees",
+      "about": "About",
+      "newsroom": "Newsroom",
+      "partnerships": "Partnerships",
+      "mediaAssets": "Media Assets",
+      "faq": "FAQ",
+      "support": "Support"
+    },
+    "legalLinks": {
+      "termsOfService": "Terms of Service",
+      "privacyPolicy": "Privacy Policy",
+      "cookiePolicy": "Cookie Policy",
+      "riskDisclosure": "Risk Disclosure",
+      "pricingDisclosure": "Pricing Disclosure",
+      "cookieSettings": "Cookie Settings"
+    },
+    "regulatory": {
+      "paragraph1": "To find out more about which Plexos entity you receive services from, please check our corresponding FAQ page. If you have any other questions, please reach out to us via the in-app chat in the Plexos app.",
+      "paragraph2": "Plexos Group Ltd is registered in England and Wales (No. 12345678), is authorised by the Financial Conduct Authority to offer e-money and payment services under the Electronic Money Regulations 2011 (FRN: 987654). Plexos is a trading name of Plexos Group Ltd.",
+      "paragraph3": "The registered address of Plexos Group Ltd is at 123 Financial Street, London, EC1A 1BB, United Kingdom. You can read more about our terms and policies on our website."
+    }
   }
 }

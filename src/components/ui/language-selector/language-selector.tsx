@@ -9,6 +9,7 @@ import { useEffect, useRef, useState, useTransition } from "react"
 import type { Locale } from "@/i18n/config"
 import { usePathname, useRouter } from "@/i18n/routing"
 import { cn } from "@/lib/utils"
+import { useLocaleTransition } from "@/components/providers/locale-transition-provider"
 
 import portugalFlag from "@/assets/images/countries/portugal.svg"
 import ukFlag from "@/assets/images/countries/united-kingdom.svg"
@@ -38,6 +39,7 @@ export function LanguageSelector({ className, size = "default" }: LanguageSelect
 	const router = useRouter()
 	const pathname = usePathname()
 	const t = useTranslations("languages")
+	const { startTransition: startLocaleTransition } = useLocaleTransition()
 
 	const selectedLang = languages.find(lang => lang.code === locale) || languages[0]
 
@@ -54,33 +56,35 @@ export function LanguageSelector({ className, size = "default" }: LanguageSelect
 
 	const handleSelect = (lang: Language) => {
 		setIsOpen(false)
-		startTransition(() => {
-			router.replace(pathname, { locale: lang.code })
-		})
+		// Start fade out transition
+		startLocaleTransition()
+		// Delay the actual navigation to allow fade out
+		setTimeout(() => {
+			startTransition(() => {
+				router.replace(pathname, { locale: lang.code })
+			})
+		}, 300)
 	}
 
 	return (
 		<motion.div
 			ref={dropdownRef}
-			layout
 			className={cn("relative", className)}
-			transition={{ layout: { duration: 0.3, ease: [0.32, 0.72, 0, 1] } }}
 		>
 			{/* Trigger button */}
 			<motion.button
 				type="button"
-				layout
 				onClick={() => setIsOpen(!isOpen)}
 				disabled={isPending}
 				{...languageSelectorAnimations.button}
 				className={cn(
 					"flex items-center gap-2",
-					"text-black text-sm font-medium",
-					"border-2 border-black/50 rounded-xl",
+					"text-[hsl(154,50%,25%)] text-sm font-medium",
+					"border-2 border-[hsl(154,60%,35%)] rounded-xl",
 					"bg-transparent",
-					"hover:border-black/70 hover:bg-black/10",
+					"hover:border-[hsl(154,60%,25%)] hover:bg-[hsl(154,60%,35%)]/10",
 					"transition-colors duration-200",
-					"focus:outline-none focus:ring-2 focus:ring-black/40",
+					"focus:outline-none focus:ring-2 focus:ring-[hsl(154,60%,35%)]",
 					"disabled:opacity-50",
 					size === "default" ? "px-4 py-2.5" : "px-5 py-3",
 				)}

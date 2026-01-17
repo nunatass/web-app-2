@@ -26,7 +26,7 @@ export function AnimatedLogo() {
 					className="text-4xl font-bold text-black tracking-tight pointer-events-none"
 					{...logoAnimations.frontText}
 				>
-					Plexo
+					Plexos
 				</motion.p>
 
 				{/* Back text - White */}
@@ -34,7 +34,7 @@ export function AnimatedLogo() {
 					className="absolute text-4xl font-bold text-white tracking-tight pointer-events-none"
 					{...logoAnimations.backText}
 				>
-					Plexo
+					Plexos
 				</motion.p>
 			</motion.div>
 		</motion.div>

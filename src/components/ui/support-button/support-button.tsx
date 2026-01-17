@@ -23,11 +23,11 @@ export function SupportButton({ variant, useHeroStyle = false }: SupportButtonPr
 				className={cn(
 					"flex items-center justify-center p-3",
 					"cursor-pointer rounded-full",
-					"transition-colors duration-200",
+					"transition-colors duration-300",
 					"focus:outline-none focus:ring-2",
 					useHeroStyle
-						? "text-white/90 bg-neutral-800/50 backdrop-blur-sm hover:bg-neutral-800/70 focus:ring-neutral-800/50"
-						: "text-black/90 bg-white/80 backdrop-blur-sm hover:bg-white/90 focus:ring-white/50",
+						? "text-black/90 bg-white/[0.08] backdrop-blur-sm hover:bg-white/[0.12] focus:ring-white/20"
+						: "text-black bg-[hsl(154,70%,50%)] shadow-lg hover:bg-[hsl(154,70%,45%)] focus:ring-[hsl(154,70%,50%)]",
 				)}
 				aria-label={t("support")}
 			>

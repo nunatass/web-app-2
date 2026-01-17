@@ -24,16 +24,16 @@ export function MenuButton({ isOpen, onClick, isOnHero, useFullGreen = false }: 
 			{...menuButtonAnimations.button}
 			className={cn(
 				"flex items-center gap-3 px-6 py-3",
-				"text-black text-sm font-medium",
+				"text-sm font-medium",
 				"rounded-full",
 				"transition-colors duration-300",
 				isOpen
-					? "bg-[#86efac]/30 backdrop-blur-md"
+					? "bg-white/[0.08] backdrop-blur-md text-black"
 					: useFullGreen
-						? "bg-jeton-green"
+						? "bg-[hsl(154,70%,50%)] text-black shadow-lg"
 						: isOnHero
-							? "bg-[#86efac]/30 backdrop-blur-md"
-							: "bg-jeton-green",
+							? "bg-white/[0.08] backdrop-blur-md text-black"
+							: "bg-[hsl(154,70%,50%)] text-black shadow-lg",
 			)}
 			aria-label={isOpen ? "Close menu" : "Open menu"}
 			aria-expanded={isOpen}

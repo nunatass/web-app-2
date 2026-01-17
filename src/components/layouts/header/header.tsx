@@ -16,9 +16,14 @@ export function Header() {
 				<AnimatedLogo />
 
 				<div className="flex items-center gap-3">
+					{/* Join Beta button - first, hidden on small screens */}
+					<Button id="header-join-beta" variant="beta" className="hidden md:flex">
+						<Link href="/beta">{t("joinBeta")}</Link>
+					</Button>
+
 					<LanguageSelector className="hidden sm:flex" />
 
-					<Button id="header-login" variant="outline">
+					<Button id="header-login" variant="outline-primary">
 						<Link href="/login">{t("login")}</Link>
 					</Button>
 

@@ -12,57 +12,27 @@ export function BottomNav() {
 	const [useHeroStyle, setUseHeroStyle] = useState(true)
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 	const [isInAbout, setIsInAbout] = useState(false)
+	const [isFooterVisible, setIsFooterVisible] = useState(false)
 
 	useEffect(() => {
 		const handleScroll = () => {
-			const appSection = document.getElementById("app")
-			const aboutSection = document.getElementById("about")
-			const unifySection = document.getElementById("unify")
 			const scrollY = window.scrollY
 
-			// Check About section
-			if (aboutSection) {
-				const aboutRect = aboutSection.getBoundingClientRect()
-				const isInAboutSection = aboutRect.top < window.innerHeight && aboutRect.bottom > 0
-
-				if (isInAboutSection) {
-					setActiveItem("about")
-					setUseHeroStyle(true)
-					setIsInAbout(true)
-					return
-				}
-			}
-			setIsInAbout(false)
-
-			// Check App section
-			if (appSection) {
-				const appRect = appSection.getBoundingClientRect()
-				const isInApp = appRect.top < window.innerHeight && appRect.bottom > 0
-
-				if (isInApp) {
-					setActiveItem("app")
-					setUseHeroStyle(true)
-					return
-				}
-			}
-
-			// Check Unify section (white background)
-			if (unifySection) {
-				const unifyRect = unifySection.getBoundingClientRect()
-				const isInUnify = unifyRect.top < window.innerHeight * 0.7 && unifyRect.bottom > window.innerHeight * 0.3
-
-				if (isInUnify) {
-					setActiveItem("home")
-					setUseHeroStyle(false)
-					return
-				}
-			}
-
-			// Default to Hero section
-			const heroHeight = window.innerHeight
-			const isOnHero = scrollY < heroHeight * 0.8
-			setActiveItem("home")
+			// Change style as soon as user scrolls even slightly (50px threshold)
+			const isOnHero = scrollY < 50
 			setUseHeroStyle(isOnHero)
+
+			// Check if footer is visible
+			const footer = document.querySelector("footer")
+			if (footer) {
+				const footerRect = footer.getBoundingClientRect()
+				const windowHeight = window.innerHeight
+				// Hide nav when footer top is within 100px of viewport bottom
+				setIsFooterVisible(footerRect.top < windowHeight - 100)
+			}
+
+			setActiveItem("home")
+			setIsInAbout(false)
 		}
 
 		window.addEventListener("scroll", handleScroll, { passive: true })
@@ -88,18 +58,30 @@ export function BottomNav() {
 
 	return (
 		<>
-			{/* Desktop Navigation - Always visible and fixed */}
-			<div className="fixed bottom-3 left-0 right-0 z-50 px-6 md:px-10 lg:px-12 hidden md:block">
+			{/* Desktop Navigation - Hidden when footer is visible */}
+			<div 
+				className={`fixed bottom-3 left-0 right-0 z-50 px-6 md:px-10 lg:px-12 hidden md:block transition-all duration-300 ${
+					isFooterVisible ? "opacity-0 pointer-events-none translate-y-4" : "opacity-100 translate-y-0"
+				}`}
+			>
 				<div className="flex items-center justify-between">
-					{/* Scroll Button - Desktop only */}
-					<ScrollButton
-						visible={true}
-						onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
-					/>
+					{/* Scroll Button - Desktop only, visible only on hero */}
+					{/* Wrapper maintains space for layout even when button is hidden */}
+					<div className="min-w-[100px]">
+						<ScrollButton
+							visible={useHeroStyle}
+							useHeroStyle={useHeroStyle}
+							onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
+						/>
+					</div>
 
 					{/* Navigation */}
 					<nav
-						className="flex items-center p-1 rounded-full bg-white/[0.08] backdrop-blur-sm transition-colors duration-300"
+						className={`flex items-center p-1 rounded-full backdrop-blur-sm transition-all duration-300 ${
+							useHeroStyle 
+								? "bg-white/[0.08]" 
+								: "bg-[hsl(154,70%,50%)] shadow-lg"
+						}`}
 						aria-label="Page sections"
 					>
 						{navItems.map(item => (
@@ -117,10 +99,14 @@ export function BottomNav() {
 				</div>
 			</div>
 
-			{/* Mobile Navigation - Always visible, fixed position */}
+			{/* Mobile Navigation - Hidden when footer is visible */}
 			<div className="md:hidden">
 				{/* Mobile Menu Button - Fixed at bottom, aligned with support button */}
-				<div className="fixed bottom-6 left-0 right-0 z-[70] px-6">
+				<div 
+					className={`fixed bottom-6 left-0 right-0 z-[70] px-6 transition-all duration-300 ${
+						isFooterVisible ? "opacity-0 pointer-events-none translate-y-4" : "opacity-100 translate-y-0"
+					}`}
+				>
 					<div className="flex items-center justify-center">
 						<MenuButton
 							isOpen={isMobileMenuOpen}
@@ -131,8 +117,12 @@ export function BottomNav() {
 					</div>
 				</div>
 
-				{/* Support Button - Mobile (fixed position) */}
-				<div className="fixed bottom-6 right-6 z-30">
+				{/* Support Button - Mobile (fixed position) - Hidden when footer is visible */}
+				<div 
+					className={`fixed bottom-6 right-6 z-30 transition-all duration-300 ${
+						isFooterVisible ? "opacity-0 pointer-events-none translate-y-4" : "opacity-100 translate-y-0"
+					}`}
+				>
 					<SupportButton variant="mobile" useHeroStyle={useHeroStyle} />
 				</div>
 

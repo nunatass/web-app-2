@@ -7,7 +7,7 @@
 @layer base {
   :root {
 			
-    --background: 154 70% 50%;
+    --background: 0 0% 0%;
 
     --foreground: 0 0% 3.9%;
 
@@ -117,14 +117,10 @@
   }
   html {
     overflow-x: hidden;
-    scroll-behavior: smooth;
-    overscroll-behavior: none;
   }
   body {
     @apply bg-background text-foreground;
     overflow-x: hidden;
-    overscroll-behavior: none;
-    /* Ensure page starts at top on load */
     position: relative;
     min-height: 100vh;
   }

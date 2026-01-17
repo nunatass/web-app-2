@@ -10,9 +10,10 @@ import { scrollButtonAnimations } from "./animations"
 type ScrollButtonProps = {
 	visible?: boolean
 	onClick?: () => void
+	useHeroStyle?: boolean
 }
 
-export function ScrollButton({ visible = true, onClick }: ScrollButtonProps) {
+export function ScrollButton({ visible = true, onClick, useHeroStyle = true }: ScrollButtonProps) {
 	const t = useTranslations("common")
 
 	return (
@@ -25,11 +26,13 @@ export function ScrollButton({ visible = true, onClick }: ScrollButtonProps) {
 					onClick={onClick}
 					className={cn(
 						"flex items-center gap-2 px-4 py-2.5",
-						"text-black/50 text-sm font-medium",
-						"bg-white/[0.08] backdrop-blur-sm rounded-full",
-						"hover:bg-white/[0.12] hover:text-black/70",
-						"transition-colors duration-200",
-						"focus:outline-none focus:ring-2 focus:ring-white/20",
+						"text-sm font-medium",
+						"backdrop-blur-sm rounded-full",
+						"transition-colors duration-300",
+						"focus:outline-none focus:ring-2",
+						useHeroStyle
+							? "text-black/50 bg-white/[0.08] hover:bg-white/[0.12] hover:text-black/70 focus:ring-white/20"
+							: "text-white/70 bg-white/[0.08] hover:bg-white/[0.15] hover:text-white focus:ring-white/20",
 					)}
 					aria-label="Scroll down"
 				>

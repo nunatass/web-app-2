@@ -1,8 +1,9 @@
 {
   "common": {
-    "appName": "Plexo",
+    "appName": "Plexos",
     "login": "Entrar",
     "signup": "Cadastrar",
+    "joinBeta": "Beta teste",
     "menu": "Menu",
     "scroll": "Rolar",
     "support": "Suporte"
@@ -36,7 +37,7 @@
   },
   "menu": {
     "personal": "Pessoal",
-    "plexoCard": "Cartão Plexo",
+    "plexoCard": "Cartão Plexos",
     "fees": "Taxas",
     "business": "Empresas",
     "company": "Empresa",
@@ -115,7 +116,7 @@
     "method": {
       "name": "Método",
       "title": "Mais de 50 métodos de pagamento na Europa",
-      "description": "A Plexo está conectada com mais de 25 países e 50 métodos de pagamento."
+      "description": "A Plexos está conectada com mais de 25 países e 50 métodos de pagamento."
     },
     "exchange": {
       "name": "Câmbio",
@@ -149,7 +150,7 @@
   },
   "about": {
     "regulatory": {
-      "text1": "© 2025 | PLEXO GROUP LTD é uma empresa registrada na Inglaterra e País de Gales sob o número 12345678. Endereço registrado: 123 Financial Street, Londres, EC1A 1BB, Reino Unido. PLEXO GROUP LTD é autorizada e regulamentada pela Autoridade de Conduta Financeira sob os Regulamentos de Dinheiro Eletrônico de 2011 para distribuição de e-money e prestação de serviços de pagamento (FRN: 987654). PLEXO é um nome comercial da PLEXO GROUP LTD.",
+      "text1": "© 2025 | PLEXOS GROUP LTD é uma empresa registrada na Inglaterra e País de Gales sob o número 12345678. Endereço registrado: 123 Financial Street, Londres, EC1A 1BB, Reino Unido. PLEXO GROUP LTD é autorizada e regulamentada pela Autoridade de Conduta Financeira sob os Regulamentos de Dinheiro Eletrônico de 2011 para distribuição de e-money e prestação de serviços de pagamento (FRN: 987654). PLEXO é um nome comercial da PLEXO GROUP LTD.",
       "text2": "A Conta e Cartão Plexo são emitidos pela Autoridade Parceira Financeira sob os Regulamentos de Dinheiro Eletrônico de 2011 e é regulamentada na Inglaterra e País de Gales. Número da empresa 12345678, com endereço registrado em 123 Partner Street, Londres, EC1A 1BB, Reino Unido."
     },
     "partnerships": {
@@ -170,5 +171,83 @@
     "privacy": "Política de Privacidade",
     "qrTitle": "Entrar com QR code",
     "qrSubtitle": "Escaneie este código com a câmera do seu telefone para entrar instantaneamente"
+  },
+  "spendingFeatures": {
+    "hero": {
+      "line1": "PAGUE EM QUALQUER",
+      "line2": "LUGAR DO MUNDO",
+      "subtitle": "Sua porta de entrada para pagamentos globais. Sem fronteiras, sem limites."
+    },
+    "title": {
+      "line1": "O MUNDO AGORA",
+      "line2": "É SEU"
+    },
+    "description": {
+      "line1": "Compre na Amazon, assine Netflix, reserve voos pelo mundo.",
+      "line2": "Envie dinheiro para casa ou pague seus estudos no exterior.",
+      "line3": "Um cartão para tudo."
+    }
+  },
+  "cardsSection": {
+    "title": "Eleve seus gastos",
+    "subtitle": "Ganhe pontos em suas compras com um dos nossos cartões de débito. Depois troque por Milhas Aéreas e muito mais.",
+    "features": {
+      "cashback": "Até 2% de cashback em todas as compras",
+      "virtual": "Cartões virtuais e físicos disponíveis",
+      "wallet": "Crie e adicione cartões virtuais à sua Apple Wallet ou Google Wallet para começar a pagar imediatamente."
+    },
+    "terms": "T&Cs do RevPoints aplicam-se.",
+    "footer": "Alguns cartões disponíveis apenas em planos pagos. Taxas podem ser aplicadas."
+  },
+  "sendSection": {
+    "title": "ENVIE COM UM TOQUE",
+    "subtitle": "Enviar e receber dinheiro é tão fácil quanto mandar uma mensagem para um amigo.",
+    "description": "Solicite e receba dinheiro com Plexos, receba pagamentos nas principais moedas, e torne tudo ainda mais prático sincronizando seus contatos.",
+    "global": {
+      "title": "ENVIE DINHEIRO PARA QUALQUER LUGAR DO MUNDO",
+      "subtitle": "Envie dinheiro para seu filho estudando no exterior—mais rápido, com taxas menores. Envie dinheiro para a família ou receba pagamentos freelancer facilmente.",
+      "description": "Com Plexos, transferências internacionais são rápidas, acessíveis e sem complicações. Sem fronteiras, apenas possibilidades."
+    }
+  },
+  "featuresSection": {
+    "sent": "Enviado",
+    "received": "Recebido",
+    "paid": "Pago"
+  },
+  "footer": {
+    "tagline": "SEU PARCEIRO GLOBAL DE PAGAMENTOS",
+    "socialMedia": "Social",
+    "legal": "Legal",
+    "sections": {
+      "getStarted": "Começar",
+      "discover": "Descobrir",
+      "company": "Empresa",
+      "help": "Ajuda"
+    },
+    "links": {
+      "signUp": "Cadastrar",
+      "login": "Entrar",
+      "plexosCard": "Cartão Plexos",
+      "fees": "Taxas",
+      "about": "Sobre",
+      "newsroom": "Notícias",
+      "partnerships": "Parcerias",
+      "mediaAssets": "Mídia",
+      "faq": "FAQ",
+      "support": "Suporte"
+    },
+    "legalLinks": {
+      "termsOfService": "Termos de Serviço",
+      "privacyPolicy": "Política de Privacidade",
+      "cookiePolicy": "Política de Cookies",
+      "riskDisclosure": "Divulgação de Riscos",
+      "pricingDisclosure": "Divulgação de Preços",
+      "cookieSettings": "Configurações de Cookies"
+    },
+    "regulatory": {
+      "paragraph1": "Para saber mais sobre qual entidade Plexos você recebe serviços, consulte nossa página de FAQ correspondente. Se você tiver outras dúvidas, entre em contato conosco pelo chat no aplicativo Plexos.",
+      "paragraph2": "Plexos Group Ltd está registrada na Inglaterra e País de Gales (No. 12345678), é autorizada pela Financial Conduct Authority para oferecer serviços de dinheiro eletrônico e pagamento sob os Regulamentos de Dinheiro Eletrônico de 2011 (FRN: 987654). Plexos é um nome comercial da Plexos Group Ltd.",
+      "paragraph3": "O endereço registrado da Plexos Group Ltd é 123 Financial Street, Londres, EC1A 1BB, Reino Unido. Você pode ler mais sobre nossos termos e políticas em nosso site."
+    }
   }
 }

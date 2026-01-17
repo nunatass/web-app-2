@@ -89,7 +89,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 					initial="hidden"
 					animate="visible"
 					exit="exit"
-					className="fixed inset-0 z-[60] bg-background overflow-y-auto md:hidden"
+					className="fixed inset-0 z-[60] bg-[hsl(154,70%,50%)] overflow-y-auto md:hidden"
 				>
 					<MenuHeader />
 					<MenuContent onItemClick={onClose} />
