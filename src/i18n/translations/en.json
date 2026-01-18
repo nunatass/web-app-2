@@ -13,10 +13,19 @@
     "pt": "Português",
     "selectLanguage": "Select language"
   },
+  "regions": {
+    "portugal": "Portugal",
+    "angola": "Angola",
+    "mozambique": "Mozambique",
+    "capeVerde": "Cape Verde",
+    "guineaBissau": "Guinea-Bissau",
+    "saoTome": "São Tomé and Príncipe",
+    "otherRegions": "Other Regions"
+  },
   "hero": {
     "title": {
-      "line1": "One app",
-      "line2": "for all needs"
+      "line1": "One app for all",
+      "line2": "your finances"
     },
     "subtitle": "One account for all your payments.",
     "appStore": {
@@ -33,7 +42,30 @@
     "cards": "Cards",
     "app": "App",
     "faqs": "FAQs",
-    "homepage": "Homepage"
+    "homepage": "Homepage",
+    "faqsTitle": "Frequently Asked Questions",
+    "faqsSubtitle": "Find everything you need to know about Plexos, how it works, and how we help you access global payments with ease."
+  },
+  "fees": {
+    "meta": {
+      "title": "Fees",
+      "description": "Plexos is built with transparency at its core, so you can manage your money confidently knowing exactly how much each service costs."
+    },
+    "hero": {
+      "title": {
+        "line1": "Transparent fees.",
+        "line2": "Smart limits."
+      },
+      "subtitle": "Plexos is built with transparency at its core, so you can manage your money confidently knowing exactly how much each service costs."
+    }
+  },
+  "terms": {
+    "meta": {
+      "title": "Terms of Service",
+      "description": "Terms and conditions for using Plexos services."
+    },
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: January 2026"
   },
   "spendingFeatures": {
     "hero": {
@@ -101,7 +133,7 @@
       "newsroom": "Newsroom",
       "partnerships": "Partnerships",
       "mediaAssets": "Media Assets",
-      "faq": "FAQ",
+      "faqs": "FAQs",
       "support": "Support"
     },
     "legalLinks": {

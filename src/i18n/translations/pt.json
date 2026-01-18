@@ -13,10 +13,19 @@
     "pt": "Português",
     "selectLanguage": "Selecionar idioma"
   },
+  "regions": {
+    "portugal": "Portugal",
+    "angola": "Angola",
+    "mozambique": "Moçambique",
+    "capeVerde": "Cabo Verde",
+    "guineaBissau": "Guiné-Bissau",
+    "saoTome": "São Tomé e Príncipe",
+    "otherRegions": "Outras Regiões"
+  },
   "hero": {
     "title": {
-      "line1": "Um app",
-      "line2": "para tudo"
+      "line1": "Um app para todas",
+      "line2": "suas finanças"
     },
     "subtitle": "Uma conta para todos os seus pagamentos.",
     "appStore": {
@@ -33,7 +42,30 @@
     "cards": "Cartões",
     "app": "App",
     "faqs": "Dúvidas",
-    "homepage": "Página inicial"
+    "homepage": "Página inicial",
+    "faqsTitle": "Perguntas Frequentes",
+    "faqsSubtitle": "Encontre tudo o que precisa de saber sobre o Plexos, como funciona e como o ajudamos a aceder a pagamentos globais com facilidade."
+  },
+  "fees": {
+    "meta": {
+      "title": "Taxas",
+      "description": "A Plexos foi construída com transparência no seu núcleo, para que possa gerir o seu dinheiro com confiança, sabendo exatamente quanto custa cada serviço."
+    },
+    "hero": {
+      "title": {
+        "line1": "Taxas transparentes.",
+        "line2": "Limites inteligentes."
+      },
+      "subtitle": "A Plexos foi construída com transparência no seu núcleo, para que possa gerir o seu dinheiro com confiança, sabendo exatamente quanto custa cada serviço."
+    }
+  },
+  "terms": {
+    "meta": {
+      "title": "Termos de Serviço",
+      "description": "Termos e condições para usar os serviços Plexos."
+    },
+    "title": "Termos de Serviço",
+    "lastUpdated": "Última atualização: Janeiro 2026"
   },
   "menu": {
     "personal": "Pessoal",
@@ -238,7 +270,7 @@
       "newsroom": "Notícias",
       "partnerships": "Parcerias",
       "mediaAssets": "Mídia",
-      "faq": "FAQ",
+      "faqs": "Perguntas Frequentes",
       "support": "Suporte"
     },
     "legalLinks": {

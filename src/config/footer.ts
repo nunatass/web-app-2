@@ -3,9 +3,7 @@
 
 export const footerConfig = {
 	// Get Started Links
-	getStarted: [
-		{ key: "login", href: "/download-app" },
-	],
+	getStarted: [{ key: "login", href: "/download-app" }],
 
 	// Discover Links
 	discover: [
@@ -18,19 +16,18 @@ export const footerConfig = {
 		{ key: "about", href: "/about" },
 		{ key: "newsroom", href: "/newsroom" },
 		{ key: "partnerships", href: "/partnerships" },
-		{ key: "mediaAssets", href: "/media" },
 	],
 
 	// Legal Links
 	legal: [
-		{ key: "termsOfService", href: "/legal/terms" },
+		{ key: "termsOfService", href: "/terms-of-service" },
 		{ key: "privacyPolicy", href: "/legal/privacy" },
 		{ key: "cookieSettings", href: "#cookie-settings" },
 	],
 
 	// Help Links
 	help: [
-		{ key: "faq", href: "/faq" },
+		{ key: "faqs", href: "/faqs" },
 		{ key: "support", href: "/support" },
 	],
 

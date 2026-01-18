@@ -1,30 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { useTranslations } from "next-intl"
 import { footerConfig } from "@/config/footer"
-
-// Smart link that scrolls to top if already on the same page
-function FooterLink({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
-	const pathname = usePathname()
-	
-	// Check if current path matches the href (accounting for locale prefix)
-	const isCurrentPage = pathname.endsWith(href) || pathname === href
-	
-	const handleClick = (e: React.MouseEvent) => {
-		if (isCurrentPage) {
-			e.preventDefault()
-			window.scrollTo({ top: 0, behavior: "smooth" })
-		}
-	}
-	
-	return (
-		<Link href={href} onClick={handleClick} className={className}>
-			{children}
-		</Link>
-	)
-}
 
 export function Footer() {
 	const t = useTranslations("footer")
@@ -32,9 +10,18 @@ export function Footer() {
 	const scrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: "smooth" })
 	}
+	
+	// Prevent event bubbling on footer links
+	const handleFooterClick = (e: React.MouseEvent<HTMLDivElement>) => {
+		// Only stop propagation if clicking on a link or inside a link
+		const target = e.target as HTMLElement
+		if (target.tagName === 'A' || target.closest('a')) {
+			e.stopPropagation()
+		}
+	}
 
 	return (
-		<footer className="bg-black text-white">
+		<footer className="bg-black text-white" onClick={handleFooterClick}>
 			{/* Large PLEXOS Text - Full width, min half screen height on desktop */}
 			<div className="relative w-full min-h-[22vh] md:min-h-[50vh] flex items-center justify-center py-8 md:py-12">
 				<button
@@ -59,12 +46,12 @@ export function Footer() {
 						<ul className="space-y-2">
 							{footerConfig.getStarted.map((item) => (
 								<li key={item.key}>
-									<FooterLink
+									<Link
 										href={item.href}
 										className="text-sm text-white hover:text-gray-300 transition-colors"
 									>
 										{t(`links.${item.key}`)}
-									</FooterLink>
+									</Link>
 								</li>
 							))}
 						</ul>
@@ -78,12 +65,12 @@ export function Footer() {
 						<ul className="space-y-2">
 							{footerConfig.discover.map((item) => (
 								<li key={item.key}>
-									<FooterLink
+									<Link
 										href={item.href}
 										className="text-sm text-white hover:text-gray-300 transition-colors"
 									>
 										{t(`links.${item.key}`)}
-									</FooterLink>
+									</Link>
 								</li>
 							))}
 						</ul>
@@ -97,12 +84,12 @@ export function Footer() {
 						<ul className="space-y-2">
 							{footerConfig.companyLinks.map((item) => (
 								<li key={item.key}>
-									<FooterLink
+									<Link
 										href={item.href}
 										className="text-sm text-white hover:text-gray-300 transition-colors"
 									>
 										{t(`links.${item.key}`)}
-									</FooterLink>
+									</Link>
 								</li>
 							))}
 						</ul>
@@ -116,12 +103,12 @@ export function Footer() {
 						<ul className="space-y-2">
 							{footerConfig.legal.map((item) => (
 								<li key={item.key}>
-									<FooterLink
+									<Link
 										href={item.href}
 										className="text-sm text-white hover:text-gray-300 transition-colors"
 									>
 										{t(`legalLinks.${item.key}`)}
-									</FooterLink>
+									</Link>
 								</li>
 							))}
 						</ul>
@@ -135,12 +122,12 @@ export function Footer() {
 						<ul className="space-y-2">
 							{footerConfig.help.map((item) => (
 								<li key={item.key}>
-									<FooterLink
+									<Link
 										href={item.href}
 										className="text-sm text-white hover:text-gray-300 transition-colors"
 									>
 										{t(`links.${item.key}`)}
-									</FooterLink>
+									</Link>
 								</li>
 							))}
 						</ul>

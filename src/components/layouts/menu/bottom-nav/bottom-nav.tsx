@@ -7,9 +7,13 @@ import { MenuButton, MobileMenu } from "../mobile-menu"
 import { NavButton } from "../nav-button"
 import { navItems } from "../nav-items"
 
-export function BottomNav() {
+interface BottomNavProps {
+	forceGreenStyle?: boolean
+}
+
+export function BottomNav({ forceGreenStyle = false }: BottomNavProps) {
 	const [activeItem, setActiveItem] = useState("home")
-	const [useHeroStyle, setUseHeroStyle] = useState(true)
+	const [useHeroStyle, setUseHeroStyle] = useState(!forceGreenStyle)
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 	const [isInAbout, setIsInAbout] = useState(false)
 	const [isFooterVisible, setIsFooterVisible] = useState(false)
@@ -19,7 +23,8 @@ export function BottomNav() {
 			const scrollY = window.scrollY
 
 			// Change style as soon as user scrolls even slightly (50px threshold)
-			const isOnHero = scrollY < 50
+			// If forceGreenStyle is true, always use green (not hero) style
+			const isOnHero = forceGreenStyle ? false : scrollY < 50
 			setUseHeroStyle(isOnHero)
 
 			// Check if footer is visible

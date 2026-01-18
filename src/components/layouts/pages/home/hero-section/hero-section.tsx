@@ -14,14 +14,14 @@ export function HeroSection() {
 	return (
 		<section
 			id="hero"
-			className="relative h-dvh md:min-h-screen bg-[hsl(154,70%,50%)] px-6 py-4 md:px-10 lg:px-12"
+			className="relative min-h-dvh md:min-h-screen bg-[hsl(154,70%,50%)] px-6 py-4 md:px-10 lg:px-12 flex flex-col"
 			aria-label={`${t("title.line1")} ${t("title.line2")}`}
 		>
 			<motion.div initial="hidden" animate="visible" variants={heroSectionAnimations.fadeIn} custom={0}>
 				<Header />
 			</motion.div>
 
-			<div className="flex flex-col items-center justify-center mt-20 lg:flex-col lg:h-full lg:justify-center">
+			<div className="flex flex-col items-center justify-center flex-1 py-8 lg:flex-col lg:h-full lg:justify-center">
 				{/* Title - Top on mobile/md, bottom left on lg */}
 				<div className="w-full flex items-start justify-start lg:hidden">
 					<motion.h1
@@ -29,7 +29,7 @@ export function HeroSection() {
 						animate="visible"
 						variants={heroSectionAnimations.fadeInUp}
 						custom={0.2}
-						className="text-[2.75rem] sm:text-6xl md:text-7xl font-bold text-black leading-[1.02] tracking-[-0.02em] pr-20 my-8"
+						className="text-[2rem] sm:text-5xl md:text-6xl font-bold text-black leading-[1.02] tracking-[-0.02em] pr-12 my-8"
 					>
 						{t("title.line1")}
 						<br />
@@ -45,7 +45,7 @@ export function HeroSection() {
 						animate="visible"
 						variants={heroSectionAnimations.fadeInUp}
 						custom={0.2}
-						className="hidden lg:block lg:absolute lg:left-0 lg:bottom-40 lg:text-7xl xl:text-8xl font-bold text-black leading-[1.02] tracking-[-0.02em] lg:max-w-md xl:max-w-xl"
+						className="hidden lg:block lg:absolute lg:left-0 lg:bottom-40 lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-black leading-[1.02] tracking-[-0.02em] lg:max-w-sm xl:max-w-md 2xl:max-w-lg"
 					>
 						{t("title.line1")}
 						<br />
