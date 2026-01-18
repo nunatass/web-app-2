@@ -107,23 +107,21 @@ export function BottomNav({ forceGreenStyle = false }: BottomNavProps) {
 
 		const observerCallback = (entries: IntersectionObserverEntry[]) => {
 			// Find the most visible section
-			let mostVisibleEntry: IntersectionObserverEntry | null = null
-			let maxRatio = 0
+			const visibleEntries = entries.filter(entry => entry.isIntersecting)
 			
-			entries.forEach(entry => {
-				if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
-					mostVisibleEntry = entry
-					maxRatio = entry.intersectionRatio
-				}
+			if (visibleEntries.length === 0) return
+			
+			// Get the entry with highest intersection ratio
+			const mostVisibleEntry = visibleEntries.reduce((prev, current) => {
+				return current.intersectionRatio > prev.intersectionRatio ? current : prev
 			})
 			
 			// Update active item based on most visible section
-			if (mostVisibleEntry) {
-				const sectionId = mostVisibleEntry.target.id
-				const matchingItem = navItems.find(item => item.sectionId === sectionId)
-				if (matchingItem) {
-					setActiveItem(matchingItem.id)
-				}
+			const target = mostVisibleEntry.target as HTMLElement
+			const sectionId = target.id
+			const matchingItem = navItems.find(item => item.sectionId === sectionId)
+			if (matchingItem) {
+				setActiveItem(matchingItem.id)
 			}
 		}
 
