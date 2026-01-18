@@ -1,13 +1,24 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 import { logoAnimations } from "./animations"
 
-export function AnimatedLogo() {
+type AnimatedLogoProps = {
+	variant?: "light" | "dark"
+	className?: string
+}
+
+export function AnimatedLogo({ variant = "light", className }: AnimatedLogoProps) {
+	// Light variant: black text on light bg, flips to white
+	// Dark variant: white text on dark bg, flips to green (hero color)
+	const frontTextColor = variant === "light" ? "text-black" : "text-white"
+	const backTextColor = variant === "light" ? "text-white" : "text-[hsl(154,70%,50%)]"
+
 	return (
 		<motion.div
-			className="inline-flex flex-col items-center justify-center cursor-pointer"
+			className={cn("inline-flex flex-col items-center justify-center cursor-pointer", className)}
 			{...logoAnimations.container}
 			style={{
 				transformStyle: "preserve-3d",
@@ -21,17 +32,17 @@ export function AnimatedLogo() {
 					transformStyle: "preserve-3d",
 				}}
 			>
-				{/* Front text - Black */}
+				{/* Front text */}
 				<motion.p
-					className="text-4xl font-bold text-black tracking-tight pointer-events-none"
+					className={cn("text-4xl font-bold tracking-tight pointer-events-none", frontTextColor)}
 					{...logoAnimations.frontText}
 				>
 					Plexos
 				</motion.p>
 
-				{/* Back text - White */}
+				{/* Back text */}
 				<motion.p
-					className="absolute text-4xl font-bold text-white tracking-tight pointer-events-none"
+					className={cn("absolute text-4xl font-bold tracking-tight pointer-events-none", backTextColor)}
 					{...logoAnimations.backText}
 				>
 					Plexos

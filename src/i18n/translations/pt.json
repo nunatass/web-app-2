@@ -214,6 +214,11 @@
     "received": "Recebido",
     "paid": "Pago"
   },
+  "downloadApp": {
+    "title": "Baixe o app Plexos",
+    "subtitle": "Escaneie o QR code para baixar o app",
+    "description": "Acesse mercados globais com seu cartão de débito internacional. Envie, gaste e receba dinheiro em qualquer lugar do mundo."
+  },
   "footer": {
     "tagline": "SEU PARCEIRO GLOBAL DE PAGAMENTOS",
     "socialMedia": "Social",

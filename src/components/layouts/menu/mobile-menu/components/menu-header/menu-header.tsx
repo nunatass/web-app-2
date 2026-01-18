@@ -29,7 +29,7 @@ export function MenuHeader() {
 			>
 				<LanguageSelector />
 				<Button id="menu-login" variant="outline">
-					<Link href="/login">{t("login")}</Link>
+					<Link href="/download-app">{t("login")}</Link>
 				</Button>
 			</motion.div>
 		</div>

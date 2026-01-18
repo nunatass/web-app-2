@@ -1,4 +1,3 @@
-import { Footer } from "@/components/layouts/footer"
 import { BottomNav } from "@/components/layouts/menu"
 import { FeaturesSection } from "@/components/layouts/pages/home/features-section"
 import { HeroSection } from "@/components/layouts/pages/home/hero-section"
@@ -12,7 +11,6 @@ export default function Home() {
 			<SpendingFeatures />
 			<FeaturesSection />
 			<SendSection />
-			<Footer />
 			<BottomNav />
 		</main>
 	)

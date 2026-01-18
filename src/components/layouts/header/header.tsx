@@ -18,18 +18,13 @@ export function Header() {
 				<div className="flex items-center gap-3">
 					{/* Join Beta button - first, hidden on small screens */}
 					<Button id="header-join-beta" variant="beta" className="hidden md:flex">
-						<Link href="/beta">{t("joinBeta")}</Link>
+						<Link href="/download-app">{t("joinBeta")}</Link>
 					</Button>
 
 					<LanguageSelector className="hidden sm:flex" />
 
 					<Button id="header-login" variant="outline-primary">
-						<Link href="/login">{t("login")}</Link>
-					</Button>
-
-					{/* Sign up button - hidden on very small screens */}
-					<Button id="header-signup" variant="default" className="hidden sm:flex">
-						<Link href="/signup">{t("signup")}</Link>
+						<Link href="/download-app">{t("login")}</Link>
 					</Button>
 				</div>
 			</nav>

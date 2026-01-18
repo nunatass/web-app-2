@@ -77,6 +77,11 @@
     "received": "Received",
     "paid": "Paid"
   },
+  "downloadApp": {
+    "title": "Get the Plexos app",
+    "subtitle": "Scan the QR code to download the app",
+    "description": "Access global markets with your international debit card. Send, spend, and receive money anywhere in the world."
+  },
   "footer": {
     "tagline": "YOUR GLOBAL PAYMENT PARTNER",
     "socialMedia": "Social",

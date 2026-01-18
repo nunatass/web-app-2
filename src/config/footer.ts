@@ -4,8 +4,7 @@
 export const footerConfig = {
 	// Get Started Links
 	getStarted: [
-		{ key: "signUp", href: "/signup" },
-		{ key: "login", href: "/login" },
+		{ key: "login", href: "/download-app" },
 	],
 
 	// Discover Links

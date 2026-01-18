@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import { useTranslations } from "next-intl"
 import { motion } from "framer-motion"
@@ -189,14 +190,16 @@ export function FeaturesSection() {
 							</div>
 						</div>
 						{/* Try it now button - Desktop only */}
-						<motion.button 
-							className="hidden md:inline-flex items-center justify-center bg-[hsl(154,70%,50%)] text-black font-medium py-3 px-8 rounded-full hover:bg-[hsl(154,70%,45%)] transition-colors"
-							whileHover={{ scale: 0.97 }}
-							whileTap={{ scale: 0.95 }}
-							transition={{ duration: 0.2, ease: [0.33, 1, 0.68, 1] }}
-						>
-							Try it now
-						</motion.button>
+						<Link href="/download-app">
+							<motion.span 
+								className="hidden md:inline-flex items-center justify-center bg-[hsl(154,70%,50%)] text-black font-medium py-3 px-8 rounded-full hover:bg-[hsl(154,70%,45%)] transition-colors cursor-pointer"
+								whileHover={{ scale: 0.97 }}
+								whileTap={{ scale: 0.95 }}
+								transition={{ duration: 0.2, ease: [0.33, 1, 0.68, 1] }}
+							>
+								Try it now
+							</motion.span>
+						</Link>
 					</div>
 				</div>
 			</div>

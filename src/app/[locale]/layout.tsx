@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/config";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
 import { LocaleTransitionProvider } from "@/components/providers/locale-transition-provider";
+import { Footer } from "@/components/layouts/footer";
 import "../globals.css";
 
 const outfit = Outfit({
@@ -62,6 +63,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <NextIntlClientProvider messages={messages}>
             <LocaleTransitionProvider>
               {children}
+              <Footer />
             </LocaleTransitionProvider>
           </NextIntlClientProvider>
         </SmoothScrollProvider>
