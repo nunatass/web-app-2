@@ -12,8 +12,8 @@ export function Header() {
 	const t = useTranslations("common")
 	const pathname = usePathname()
 	
-	// Check if we're on the home page (e.g., "/en" or "/pt")
-	const isHomePage = pathname === "/en" || pathname === "/pt"
+	// Check if we're on the home page (e.g., "/en", "/pt", "/" or "/en/", "/pt/")
+	const isHomePage = pathname === "/" || pathname === "/en" || pathname === "/pt" || pathname === "/en/" || pathname === "/pt/"
 
 	return (
 		<header className="absolute top-0 left-0 right-0 z-50 px-6 py-4 md:px-10 lg:px-12">

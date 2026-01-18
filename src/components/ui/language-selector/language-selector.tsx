@@ -9,7 +9,6 @@ import { useEffect, useRef, useState, useTransition } from "react"
 import type { Locale } from "@/i18n/config"
 import { usePathname, useRouter } from "@/i18n/routing"
 import { cn } from "@/lib/utils"
-import { useLocaleTransition } from "@/components/providers/locale-transition-provider"
 
 import portugalFlag from "@/assets/images/countries/portugal.svg"
 import ukFlag from "@/assets/images/countries/united-kingdom.svg"
@@ -39,7 +38,6 @@ export function LanguageSelector({ className, size = "default" }: LanguageSelect
 	const router = useRouter()
 	const pathname = usePathname()
 	const t = useTranslations("languages")
-	const { startTransition: startLocaleTransition } = useLocaleTransition()
 
 	const selectedLang = languages.find(lang => lang.code === locale) || languages[0]
 
@@ -56,21 +54,13 @@ export function LanguageSelector({ className, size = "default" }: LanguageSelect
 
 	const handleSelect = (lang: Language) => {
 		setIsOpen(false)
-		// Start fade out transition
-		startLocaleTransition()
-		// Delay the actual navigation to allow fade out
-		setTimeout(() => {
-			startTransition(() => {
-				router.replace(pathname, { locale: lang.code })
-			})
-		}, 300)
+		startTransition(() => {
+			router.replace(pathname, { locale: lang.code })
+		})
 	}
 
 	return (
-		<motion.div
-			ref={dropdownRef}
-			className={cn("relative", className)}
-		>
+		<motion.div ref={dropdownRef} className={cn("relative", className)}>
 			{/* Trigger button */}
 			<motion.button
 				type="button"
