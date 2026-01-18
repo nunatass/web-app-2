@@ -1,4 +1,4 @@
-import { Home } from "lucide-react"
+import { Home, CreditCard, MessageSquare, Smartphone, Info } from "lucide-react"
 import type { NavItem } from "./types"
 
 export const navItems: NavItem[] = [
@@ -11,11 +11,25 @@ export const navItems: NavItem[] = [
 	{
 		id: "app",
 		labelKey: "app",
-		sectionId: "app",
+		icon: <Smartphone className="w-5 h-5" />,
+		sectionId: "send-section",
+	},
+	{
+		id: "plexosCard",
+		labelKey: "plexosCard",
+		icon: <CreditCard className="w-5 h-5" />,
+		href: "/card",
+	},
+	{
+		id: "faqs",
+		labelKey: "faqs",
+		icon: <MessageSquare className="w-5 h-5" />,
+		href: "/faqs",
 	},
 	{
 		id: "about",
 		labelKey: "about",
-		hasDropdown: true,
+		icon: <Info className="w-5 h-5" />,
+		href: "/about",
 	},
 ]

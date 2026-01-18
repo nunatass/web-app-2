@@ -14,6 +14,9 @@ export function SmoothScrollProvider({
 
 	useEffect(() => {
 		const lenis = new Lenis()
+		
+		// Expose lenis instance globally so other components can use it
+		;(window as any).lenis = lenis
 
 		function raf(time: number) {
 			lenis.raf(time)
@@ -76,6 +79,7 @@ export function SmoothScrollProvider({
 
 		return () => {
 			lenis.destroy()
+			;(window as any).lenis = undefined
 		}
 	}, [])
 

@@ -1,11 +1,24 @@
 "use client"
 
-import Link from "next/link"
-import { useTranslations } from "next-intl"
 import { footerConfig } from "@/config/footer"
+import { useTranslations } from "next-intl"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export function Footer() {
 	const t = useTranslations("footer")
+	const pathname = usePathname()
+
+	const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+		// Check if we're on the same page (accounting for locale prefix)
+		const currentPath = pathname.split("/").slice(2).join("/") || ""
+		const targetPath = href.replace(/^\//, "")
+
+		if (currentPath === targetPath || pathname.endsWith(href)) {
+			e.preventDefault()
+			window.scrollTo({ top: 0, behavior: "smooth" })
+		}
+	}
 
 	return (
 		<footer className="bg-black text-white">
@@ -17,7 +30,7 @@ export function Footer() {
 			</div>
 
 			{/* Footer Content */}
-			<div className="container mx-auto px-6 md:px-10 lg:px-12 py-12 md:py-16">
+			<div className="relative z-10 container mx-auto px-6 md:px-10 lg:px-12 py-12 md:py-16">
 				<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-6">
 					{/* Get Started */}
 					<div>
@@ -25,11 +38,12 @@ export function Footer() {
 							{t("sections.getStarted")}
 						</h3>
 						<ul className="space-y-2">
-							{footerConfig.getStarted.map((item) => (
+							{footerConfig.getStarted.map(item => (
 								<li key={item.key}>
 									<Link
 										href={item.href}
 										className="text-sm text-white hover:text-gray-300 transition-colors"
+										onClick={e => handleLinkClick(e, item.href)}
 									>
 										{t(`links.${item.key}`)}
 									</Link>
@@ -44,11 +58,12 @@ export function Footer() {
 							{t("sections.discover")}
 						</h3>
 						<ul className="space-y-2">
-							{footerConfig.discover.map((item) => (
+							{footerConfig.discover.map(item => (
 								<li key={item.key}>
 									<Link
 										href={item.href}
 										className="text-sm text-white hover:text-gray-300 transition-colors"
+										onClick={e => handleLinkClick(e, item.href)}
 									>
 										{t(`links.${item.key}`)}
 									</Link>
@@ -63,11 +78,12 @@ export function Footer() {
 							{t("sections.company")}
 						</h3>
 						<ul className="space-y-2">
-							{footerConfig.companyLinks.map((item) => (
+							{footerConfig.companyLinks.map(item => (
 								<li key={item.key}>
 									<Link
 										href={item.href}
 										className="text-sm text-white hover:text-gray-300 transition-colors"
+										onClick={e => handleLinkClick(e, item.href)}
 									>
 										{t(`links.${item.key}`)}
 									</Link>
@@ -78,15 +94,14 @@ export function Footer() {
 
 					{/* Legal */}
 					<div>
-						<h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
-							{t("legal")}
-						</h3>
+						<h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">{t("legal")}</h3>
 						<ul className="space-y-2">
-							{footerConfig.legal.map((item) => (
+							{footerConfig.legal.map(item => (
 								<li key={item.key}>
 									<Link
 										href={item.href}
 										className="text-sm text-white hover:text-gray-300 transition-colors"
+										onClick={e => handleLinkClick(e, item.href)}
 									>
 										{t(`legalLinks.${item.key}`)}
 									</Link>
@@ -97,15 +112,14 @@ export function Footer() {
 
 					{/* Help */}
 					<div>
-						<h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
-							{t("sections.help")}
-						</h3>
+						<h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">{t("sections.help")}</h3>
 						<ul className="space-y-2">
-							{footerConfig.help.map((item) => (
+							{footerConfig.help.map(item => (
 								<li key={item.key}>
 									<Link
 										href={item.href}
 										className="text-sm text-white hover:text-gray-300 transition-colors"
+										onClick={e => handleLinkClick(e, item.href)}
 									>
 										{t(`links.${item.key}`)}
 									</Link>
@@ -116,9 +130,7 @@ export function Footer() {
 
 					{/* Social Media */}
 					<div>
-						<h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
-							{t("socialMedia")}
-						</h3>
+						<h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">{t("socialMedia")}</h3>
 						<ul className="space-y-2">
 							{footerConfig.social.twitter && (
 								<li>

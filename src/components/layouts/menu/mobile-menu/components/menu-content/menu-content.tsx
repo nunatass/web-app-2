@@ -24,6 +24,12 @@ export function MenuContent({ onItemClick }: MenuContentProps) {
 		// Close menu
 		onItemClick?.()
 
+		// If item has href, navigate to it
+		if (item.href) {
+			window.location.href = item.href
+			return
+		}
+
 		setTimeout(() => {
 			if (item.sectionId) {
 				const section = document.getElementById(item.sectionId)
