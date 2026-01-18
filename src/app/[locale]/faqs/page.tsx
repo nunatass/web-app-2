@@ -74,16 +74,17 @@ export default async function FAQsPage({
 
 			{/* Content */}
 			<div className="relative container mx-auto px-6 py-20 md:py-32">
-				{/* Image */}
-				<div className="flex justify-center mb-8 md:mb-12">
-					<Image
-						src="/word-coin.png"
-						alt="Global payments"
-						width={400}
-						height={300}
-						className="w-full max-w-md md:max-w-lg object-contain"
-					/>
-				</div>
+			{/* Image */}
+			<div className="flex justify-center mb-8 md:mb-12">
+				<Image
+					src="/word-coin.png"
+					alt="Global payments"
+					width={400}
+					height={300}
+					className="w-full max-w-md md:max-w-lg object-contain"
+					priority
+				/>
+			</div>
 
 				{/* Subtitle */}
 				<p className="text-base md:text-lg text-white/70 text-center max-w-3xl mx-auto mb-6 md:mb-8">

@@ -7,32 +7,13 @@ import { footerConfig } from "@/config/footer"
 export function Footer() {
 	const t = useTranslations("footer")
 
-	const scrollToTop = () => {
-		window.scrollTo({ top: 0, behavior: "smooth" })
-	}
-	
-	// Prevent event bubbling on footer links
-	const handleFooterClick = (e: React.MouseEvent<HTMLDivElement>) => {
-		// Only stop propagation if clicking on a link or inside a link
-		const target = e.target as HTMLElement
-		if (target.tagName === 'A' || target.closest('a')) {
-			e.stopPropagation()
-		}
-	}
-
 	return (
-		<footer className="bg-black text-white" onClick={handleFooterClick}>
+		<footer className="bg-black text-white">
 			{/* Large PLEXOS Text - Full width, min half screen height on desktop */}
 			<div className="relative w-full min-h-[22vh] md:min-h-[50vh] flex items-center justify-center py-8 md:py-12">
-				<button
-					onClick={scrollToTop}
-					className="cursor-pointer hover:opacity-80 transition-opacity"
-					aria-label="Scroll to top"
-				>
-					<h2 className="text-[26vw] font-bold leading-[0.85] tracking-[-0.04em] text-center select-none whitespace-nowrap">
-						PLEXOS
-					</h2>
-				</button>
+				<h2 className="text-[26vw] font-bold leading-[0.85] tracking-[-0.04em] text-center select-none whitespace-nowrap">
+					PLEXOS
+				</h2>
 			</div>
 
 			{/* Footer Content */}

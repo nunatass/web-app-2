@@ -41,16 +41,17 @@ export default async function TermsPage({
 
 			{/* Content */}
 			<div className="relative container mx-auto px-6 py-20 md:py-32 max-w-4xl">
-				{/* Image */}
-				<div className="flex justify-center mb-8 md:mb-12">
-					<Image
-						src="/Terms of Service.png"
-						alt="Terms of Service"
-						width={600}
-						height={450}
-						className="w-full max-w-md md:max-w-lg lg:max-w-xl object-contain"
-					/>
-				</div>
+			{/* Image */}
+			<div className="flex justify-center mb-8 md:mb-12">
+				<Image
+					src="/Terms of Service.png"
+					alt="Terms of Service"
+					width={600}
+					height={450}
+					className="w-full max-w-md md:max-w-lg lg:max-w-xl object-contain"
+					priority
+				/>
+			</div>
 
 				{/* Title */}
 				<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center mb-4">

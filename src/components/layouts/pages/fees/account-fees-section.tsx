@@ -38,54 +38,54 @@ export function AccountFeesSection({ locale }: AccountFeesProps) {
 		<section className="relative py-12 md:py-16 bg-black">
 			<div className="px-6 md:px-10 lg:px-12">
 				<div className="bg-[#0a0a0a] rounded-[40px] p-6 md:p-10">
-					{/* Header */}
-					<div className="flex flex-col gap-4 mb-6">
-						<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">{data.title}</h2>
+				{/* Header */}
+				<div className="flex flex-col gap-4 mb-6 md:flex-row md:items-center md:justify-between">
+					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">{data.title}</h2>
 
-						<div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-							{/* Tabs */}
-							<div className="relative flex items-center gap-2 bg-[#141414] rounded-full p-1 flex-1 sm:flex-initial">
-								<button
-									onClick={() => setActiveTab("deposit")}
-									className={`relative z-10 flex-1 sm:flex-initial px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
-										activeTab === "deposit"
-											? "text-black"
-											: "text-white/70 hover:text-white"
-									}`}
-								>
-									{data.tabs.deposit}
-								</button>
-								<button
-									onClick={() => setActiveTab("withdraw")}
-									className={`relative z-10 flex-1 sm:flex-initial px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
-										activeTab === "withdraw"
-											? "text-black"
-											: "text-white/70 hover:text-white"
-									}`}
-								>
-									{data.tabs.withdraw}
-								</button>
-								{/* Animated indicator */}
-								<motion.div
-									layoutId="activeTab"
-									className="absolute inset-y-1 rounded-full bg-[hsl(154,70%,50%)] shadow-lg"
-									initial={false}
-									transition={{
-										type: "spring",
-										stiffness: 500,
-										damping: 30
-									}}
-									style={{
-										left: activeTab === "deposit" ? "4px" : "50%",
-										right: activeTab === "deposit" ? "50%" : "4px"
-									}}
-								/>
-							</div>
-
-							{/* Region Selector */}
-							<RegionSelector value={selectedRegion} onChange={setSelectedRegion} className="w-full sm:w-auto" />
+					<div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+						{/* Tabs */}
+						<div className="relative flex items-center gap-2 bg-[#141414] rounded-full p-1 flex-1 sm:flex-initial">
+							<button
+								onClick={() => setActiveTab("deposit")}
+								className={`relative z-10 flex-1 sm:flex-initial px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
+									activeTab === "deposit"
+										? "text-black"
+										: "text-white/70 hover:text-white"
+								}`}
+							>
+								{data.tabs.deposit}
+							</button>
+							<button
+								onClick={() => setActiveTab("withdraw")}
+								className={`relative z-10 flex-1 sm:flex-initial px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
+									activeTab === "withdraw"
+										? "text-black"
+										: "text-white/70 hover:text-white"
+								}`}
+							>
+								{data.tabs.withdraw}
+							</button>
+							{/* Animated indicator */}
+							<motion.div
+								layoutId="activeTab"
+								className="absolute inset-y-1 rounded-full bg-[hsl(154,70%,50%)] shadow-lg"
+								initial={false}
+								transition={{
+									type: "spring",
+									stiffness: 500,
+									damping: 30
+								}}
+								style={{
+									left: activeTab === "deposit" ? "4px" : "50%",
+									right: activeTab === "deposit" ? "50%" : "4px"
+								}}
+							/>
 						</div>
+
+						{/* Region Selector */}
+						<RegionSelector value={selectedRegion} onChange={setSelectedRegion} className="w-full sm:w-auto" />
 					</div>
+				</div>
 
 					{/* Payment Methods Grid */}
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
