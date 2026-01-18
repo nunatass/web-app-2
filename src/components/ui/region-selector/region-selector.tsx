@@ -32,19 +32,22 @@ export function RegionSelector({ value, onChange, className }: RegionSelectorPro
 		return () => document.removeEventListener("mousedown", handleClickOutside)
 	}, [])
 
-	const renderIcon = (region: typeof regions[number], className: string) => {
-		if (region.icon === "globe") {
-			return <GlobeIcon className={cn(className, "text-[hsl(154,70%,50%)]")} />
+	const renderIcon = (region: typeof regions[number], iconClassName: string) => {
+		if ("icon" in region && region.icon === "globe") {
+			return <GlobeIcon className={cn(iconClassName, "text-[hsl(154,70%,50%)]")} />
 		}
-		return (
-			<Image
-				src={region.flag!}
-				alt={region.name}
-				width={24}
-				height={24}
-				className={className}
-			/>
-		)
+		if ("flag" in region) {
+			return (
+				<Image
+					src={region.flag}
+					alt={t(region.nameKey)}
+					width={24}
+					height={24}
+					className={iconClassName}
+				/>
+			)
+		}
+		return null
 	}
 
 	return (
