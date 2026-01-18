@@ -21,7 +21,7 @@ export function HeroSection() {
 				<Header />
 			</motion.div>
 
-			<div className="flex flex-col items-center justify-center flex-1 py-8 lg:flex-col lg:h-full lg:justify-center">
+			<div className="flex flex-col items-center justify-center flex-1 py-8 lg:flex-col lg:h-full lg:justify-end lg:pb-20">
 				{/* Title - Top on mobile/md, bottom left on lg */}
 				<div className="w-full flex items-start justify-start lg:hidden">
 					<motion.h1
@@ -38,14 +38,14 @@ export function HeroSection() {
 				</div>
 
 				{/* Content wrapper */}
-				<div className="flex flex-col items-center justify-center gap-6 sm:flex-row md:gap-12 lg:relative lg:flex-row lg:justify-center lg:items-end lg:flex-1 lg:w-full lg:pb-16">
+				<div className="flex flex-col items-center justify-center gap-6 sm:flex-row md:gap-12 lg:relative lg:flex-row lg:justify-center lg:items-end lg:w-full">
 					{/* Title - Bottom left on lg, aligned with iPhone bottom */}
 					<motion.h1
 						initial="hidden"
 						animate="visible"
 						variants={heroSectionAnimations.fadeInUp}
 						custom={0.2}
-						className="hidden lg:block lg:absolute lg:left-0 lg:bottom-40 lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-black leading-[1.02] tracking-[-0.02em] lg:max-w-sm xl:max-w-md 2xl:max-w-lg"
+						className="hidden lg:block lg:absolute lg:left-0 lg:bottom-0 lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-black leading-[1.02] tracking-[-0.02em] lg:max-w-sm xl:max-w-md 2xl:max-w-lg"
 					>
 						{t("title.line1")}
 						<br />
@@ -58,13 +58,13 @@ export function HeroSection() {
 						animate="visible"
 						variants={heroSectionAnimations.scaleIn}
 						custom={0.4}
-						className="lg:flex-shrink-0 lg:mb-24"
+						className="lg:flex-shrink-0"
 					>
 						<IPhoneFrame videoSrc="/hero-video.mp4" className="md:max-w-[200px] lg:max-w-[280px] 2xl:max-w-[340px]" />
 					</motion.div>
 
 					{/* Description and Buttons - Bottom Right, aligned with iPhone bottom */}
-					<div className="flex flex-col items-center justify-center gap-2 md:items-start md:justify-end lg:absolute lg:right-0 lg:bottom-40 lg:items-end lg:max-w-xs">
+					<div className="flex flex-col items-center justify-center gap-2 md:items-start md:justify-end lg:absolute lg:right-0 lg:bottom-0 lg:items-end lg:max-w-xs">
 						<motion.p
 							initial="hidden"
 							animate="visible"
