@@ -4,4 +4,5 @@ export type NavItem = {
 	icon?: React.ReactNode
 	hasDropdown?: boolean
 	sectionId?: string
+	href?: string
 }
